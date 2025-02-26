@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Slides Auto</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        iframe {
+            width: 100vw;
+            height: 100vh;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <iframe id="slidesFrame"
+        src="https://docs.google.com/presentation/d/1t8e2BOOXUhOhY4Uzd4CX2njQc06q7oiZypcxh-tlHic/embed?start=true&loop=true&delayms=20000"
+        allowfullscreen>
+    </iframe>
+
+    <script>
+        let refreshTime = 120000; // 2 minutes en millisecondes (120000 ms)
+
+        setInterval(() => {
+            let iframe = document.getElementById('slidesFrame');
+            let src = iframe.src;
+            iframe.src = src; // Recharge l’iframe sans changer l’ordre des slides
+        }, refreshTime);
+    </script>
+
+</body>
+</html>
